@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import NavBar from "./components/NavBar";
+import React from "react";
+
+import Home from "./pages/Home";
+import FilmsPopulaires from "./pages/FilmsPopulaires";
+import UnFilms from "./pages/UnFilms";
+
+// const Home = React.lazy(() => import("./pages/Home"));
+// const FilmsPopulaires = React.lazy(() => import("./pages/FilmsPopulaires"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <React.Suspense fallback={<span>Loading...</span>}>
+        <BrowserRouter>
+          <NavBar />
+          <div className="container">
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/films" element={<FilmsPopulaires />} />
+              <Route exact path="/films/:id" element={<UnFilms />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </React.Suspense>
+    </>
   );
 }
 
