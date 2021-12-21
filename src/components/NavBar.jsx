@@ -1,8 +1,9 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
-const NavBar = () => (
-  <>
+const NavBar = () => {
+  const location = useLocation()  
+  return <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to={"/"}>
         Navbar
@@ -13,12 +14,12 @@ const NavBar = () => (
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link active" to={"/"}>
+            <Link className={`nav-link ${location.pathname === "/" ? 'active' : "" }`} to={"/"}>
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to={"/films"}>
+            <Link className={`nav-link ${location.pathname === "/films" ? 'active' : "" }`} to={"/films"}>
               Films Populaires
             </Link>
           </li>
@@ -26,6 +27,6 @@ const NavBar = () => (
       </div>
     </nav>
   </>
-);
+};
 
 export default NavBar;

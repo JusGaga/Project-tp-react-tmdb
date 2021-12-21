@@ -8,7 +8,7 @@ const Home = () => {
   const [filmsTopRated, setFilmsTopRated] = useState([]);
   const [filmsUpcomming, setFilmsUpcomming] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentpage, setCurrentpage] = useState(1);
+  const currentpage = 1;
 
   useEffect(() => {
     fetchFilmsPopular(currentpage).then("r");
@@ -19,7 +19,7 @@ const Home = () => {
   const fetchFilmsPopular = async (page) => {
     setLoading(true);
     const data = await PopularFilmsRequest.getPopularFilms(page);
-    console.log(data);
+    // console.log(data);
     setFilmsPopular(data.results);
     setLoading(false);
   };
@@ -27,7 +27,7 @@ const Home = () => {
   const fetchFilmsTopRated = async (page) => {
     setLoading(true);
     const data = await PopularFilmsRequest.getTopRatedFilms(page);
-    console.log(data);
+    // console.log(data);
     setFilmsTopRated(data.results);
     setLoading(false);
   };
@@ -35,7 +35,7 @@ const Home = () => {
   const fetchFilmsUpcoming = async (page) => {
     setLoading(true);
     const data = await PopularFilmsRequest.getUpcommingFilms(page);
-    console.log(data);
+    // console.log(data);
     setFilmsUpcomming(data.results);
     setLoading(false);
   };

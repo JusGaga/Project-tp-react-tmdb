@@ -1,9 +1,9 @@
 import { Pagination } from "@mui/material";
-import axios from "axios";
+
 import React, {useEffect, useState} from "react";
 import Card from "../components/Card";
 import PopularFilmsRequest from "../services/PopularFilmsRequest";
-// import "../styles/loading-icon.css";
+
 
 
 const FilmsPopulaires = () => {
@@ -14,7 +14,7 @@ const FilmsPopulaires = () => {
 
   useEffect(() => {
     fetchFilms(currentPage).then("r");
-  }, []);
+  }, [currentPage]);
 
   const fetchFilms = async (page) => {
     const data = await PopularFilmsRequest.getPopularFilms(page)

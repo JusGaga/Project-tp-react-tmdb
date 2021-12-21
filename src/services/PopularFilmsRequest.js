@@ -7,7 +7,6 @@ function getPopularFilms(page){
 }
 
 function getTopRatedFilms(page){
-    console.log(API_Base + "movie/top_rated" + API_Key + "&language=fr-FR&page=")
     return axios.get(API_Base + "movie/top_rated" + API_Key + "&language=fr-FR&page=" + page).then(res => res.data).catch(err => err)
 }
 
