@@ -46,11 +46,11 @@ const Home = () => {
         <>
           <div className="m-5">
             <h4 className="px-2 mb-0">Populaires</h4>
-            <ScrollMenu>
-              {filmsPopular.map((film) => (
-                <Slider key={film.id} titre={film.title} image={film.poster_path} id={film.id} />
-              ))}
-            </ScrollMenu>
+              <ScrollMenu>
+                {filmsPopular.map((film) => (
+                  <Slider key={film.id} titre={film.title} image={film.poster_path} id={film.id} />
+                ))}
+              </ScrollMenu>
           </div>
           <div className="m-5">
             <h4 className="px-2 mb-0">Les mieux Notées</h4>

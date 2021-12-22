@@ -17,4 +17,16 @@ function getUpcommingFilms(page){
 function getFilm(id) {
     return axios.get(API_Base + "movie/"+id+API_Key+"&language=fr-FR").then(res=>res.data).catch(err => err)
 }
-export default {getPopularFilms , getTopRatedFilms , getUpcommingFilms , getFilm}
+
+function getLesActeurs(id){
+    return axios.get(API_Base + "movie/"+id+"/credits"+API_Key+"&language=fr-FR").then(res=>res.data).catch(err => err)
+}
+
+function getUnActeurs(id){
+    return axios.get(API_Base + "person/"+id+API_Key+"&language=fr-FR").then(res=>res.data).catch(err => err)
+}
+
+function getUnActeursCredit(id){
+    return axios.get(API_Base + "person/"+id+"/movie_credits"+API_Key+"&language=fr-FR").then(res=>res.data).catch(err => err)
+}
+export default {getPopularFilms , getTopRatedFilms , getUpcommingFilms , getFilm , getLesActeurs, getUnActeurs, getUnActeursCredit}
